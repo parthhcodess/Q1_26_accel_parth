@@ -4,3 +4,6 @@
 [submodule "escrow_litesvm"]
 	path = escrow_litesvm
 	url = https://github.com/parthhcodess/escrow_litesvm
+[submodule "gpt-oracle-tuktuk"]
+	path = gpt-oracle-tuktuk
+	url = https://github.com/parthhcodess/gpt-oracle-tuktuk
