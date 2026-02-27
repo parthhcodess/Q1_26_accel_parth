@@ -9,7 +9,7 @@ mod state;
 
 use instructions::*;
 
-declare_id!("ERJB3a6LcHXQiWfhY6tNhDYMoeFXeQnWiB7SS3hcGf5G");
+declare_id!("9ChqoFDgVmmvD6Hcajv2JppVZ7S1qPDozrTw4V7q2yLP");
 
 #[ephemeral]
 #[program]

@@ -1,12 +1,20 @@
-use crate::{er_state_account, instruction, state::UserAccount, vrf_callback, VrfCallback, ID};
+use crate::{instruction, state::UserAccount, ID};
 use anchor_lang::prelude::*;
 use ephemeral_vrf_sdk::{
-    anchor::vrf,
     instructions::{create_request_randomness_ix, RequestRandomnessParams},
     types::SerializableAccountMeta,
 };
 
-#[vrf]
+// Define VrfProgram type that implements Id trait for Anchor
+#[derive(Clone)]
+pub struct VrfProgram;
+
+impl anchor_lang::Id for VrfProgram {
+    fn id() -> Pubkey {
+        ephemeral_vrf_sdk::consts::VRF_PROGRAM_IDENTITY
+    }
+}
+
 #[derive(Accounts)]
 pub struct GenerateDataDelegated<'info> {
     #[account(mut)]
@@ -20,6 +28,8 @@ pub struct GenerateDataDelegated<'info> {
     /// CHECK: The oracle queue
     #[account(mut)]
     pub oracle_queue: AccountInfo<'info>,
+    /// The VRF program
+    pub vrf_program: Program<'info, VrfProgram>,
 }
 
 impl<'info> GenerateDataDelegated<'info> {
@@ -37,7 +47,18 @@ impl<'info> GenerateDataDelegated<'info> {
             }]),
             ..Default::default()
         });
-        self.invoke_signed_vrf(&self.user.to_account_info(), &ix)?;
+        
+        // CPI to VRF program
+        anchor_lang::solana_program::program::invoke_signed(
+            &ix,
+            &[
+                self.user.to_account_info(),
+                self.oracle_queue.to_account_info(),
+                self.vrf_program.to_account_info(),
+            ],
+            &[],
+        )?;
+        
         Ok(())
     }
 }

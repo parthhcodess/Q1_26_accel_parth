@@ -5,13 +5,11 @@ use anchor_spl::token_interface::{
     TransferChecked, CloseAccount,
 };
 
+use crate::error::ErrorCode;
 use crate::state::Escrow;
 
-/// Permissionless auto-refund: anyone can call once the deadline has passed.
-/// This is the instruction that TukTuk's crank will invoke automatically.
 #[derive(Accounts)]
 pub struct AutoRefund<'info> {
-    /// CHECK: The maker receives the refund. Verified via `has_one`.
     #[account(mut)]
     pub maker: UncheckedAccount<'info>,
     pub mint_a: InterfaceAccount<'info, Mint>,
@@ -46,7 +44,7 @@ impl<'info> AutoRefund<'info> {
         let now = Clock::get()?.unix_timestamp;
         require!(
             now >= self.escrow.refund_deadline,
-            crate::EscrowError::RefundTooEarly
+            ErrorCode::EscrowNotExpired
         );
 
         let signer_seeds: [&[&[u8]]; 1] = [&[

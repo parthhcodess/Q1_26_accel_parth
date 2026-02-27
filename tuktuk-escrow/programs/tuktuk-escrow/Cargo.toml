@@ -21,12 +21,9 @@ custom-panic = []
 
 
 [dependencies]
-anchor-lang = { version = "0.31.1", features = ["init-if-needed"] }
-# tuktuk-program = { path = "../../../tuktuk-program" }
-# Need to use this for build-verify to work. Use above for debug before pushing
-tuktuk-program = { git = "https://github.com/helium/tuktuk.git", rev = "112afe5e80aff8199c3b779203b76b35d97c42d1" }
-getrandom = { version = "0.2.15", features = ["custom"] }
-anchor-spl = "0.32.1"
+anchor-lang = { version = "0.32.1", features = ["init-if-needed"] }
+anchor-spl = { version = "0.32.1", features = ["token"] }
+tuktuk-program = { git = "https://github.com/AvhiMaz/tuktuk", branch = "chore/bump-versions", package = "tuktuk-program" }
 
 
 [lints.rust]
