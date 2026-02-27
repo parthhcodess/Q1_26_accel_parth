@@ -7,3 +7,6 @@
 [submodule "gpt-oracle-tuktuk"]
 	path = gpt-oracle-tuktuk
 	url = https://github.com/parthhcodess/gpt-oracle-tuktuk
+[submodule "scheduler"]
+	path = scheduler
+	url = https://github.com/Bijoy99roy/scheduler
