@@ -10,3 +10,6 @@
 [submodule "scheduler"]
 	path = scheduler
 	url = https://github.com/Bijoy99roy/scheduler
+[submodule "generic_storage"]
+	path = generic_storage
+	url = https://github.com/parthhcodess/generic_storage
