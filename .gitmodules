@@ -13,3 +13,6 @@
 [submodule "generic_storage"]
 	path = generic_storage
 	url = https://github.com/parthhcodess/generic_storage
+[submodule "pinocchio-fundraiser"]
+	path = pinocchio-fundraiser
+	url = https://github.com/parthhcodess/pinocchio-fundraiser
