@@ -16,3 +16,6 @@
 [submodule "pinocchio-fundraiser"]
 	path = pinocchio-fundraiser
 	url = https://github.com/parthhcodess/pinocchio-fundraiser
+[submodule "nft-staking-core"]
+	path = nft-staking-core
+	url = https://github.com/parthhcodess/nft-staking-core
