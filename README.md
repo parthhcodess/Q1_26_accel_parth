@@ -15,3 +15,5 @@ A collection of Solana smart contracts and Rust projects exploring various block
 | [generic-storage](./generic_storage) | Rust learning project: format-agnostic storage system using traits, generics, and PhantomData with Borsh, Wincode, and JSON serializers. |
 | [scheduler](./scheduler/) | Task Scheduler is a small, time‑ and priority‑based job schedule, it lets you queue jobs for future execution, pick which function to run, and watch execution logs in real time. | Rust, Ratatui, Crossterm |
 | [accel-pinocchio-escrow](./accel-pinocchio-escrow/) | High-performance escrow implementation using Pinocchio framework for optimized Solana programs with reduced compute cost | Pinocchio 0.10.2, LiteSVM, Wincode, Borsh |
+| [pinocchio-fundraiser](./pinocchio-fundraiser/) | Crowdfunding/fundraiser program built with Pinocchio framework for minimal compute unit usage | Pinocchio 0.10.2, LiteSVM, SPL Token 2022 |
+| [nft-staking-core](./nft-staking-core/) | NFT staking implementation using Metaplex Core (MPL Core) for next-gen NFT standards | Anchor 0.32.1, MPL Core |
